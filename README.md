@@ -1,15 +1,18 @@
 # Synopsis
 
     :- use_module(library(amazon_api)).
-    main :-
-        % give one motivating example
-        true.
+    ?- build_agent(Agent, ...),
+       item_lookup(Agent, 'B00000DMAX', Item),
+       title(Item, Title).
+    Title = 'Mario Kart 64'.
 
 # Description
 
+Make API calls to Amazon Web Services.  This version has been tested with Amazon's [Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html), but request/5 should work with other Amazon APIs too.
+
 # Changes in this Version
 
-  * ...
+  * Initial public release
 
 # Installation
 

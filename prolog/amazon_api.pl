@@ -21,7 +21,7 @@
 %% build_agent(-Agent, +Args:dict)
 %
 %  Build an Agent which is used for making Amazon API requests. Args
-%  should contain at least the following (obtain from Amazon):
+%  should contain at least the following keys (obtained from Amazon):
 %
 %    * `associate_tag` - string
 %    * `access_key` - string
@@ -54,10 +54,11 @@ agent_secret(agent(_,_,_,Secret),Secret).
 %% item_lookup(+Agent, +Asin:string, -Item, +Args:dict)
 %
 %  Perform an "ItemLookup" call using Amazon's Product Advertising API.
-%  Additional API arguments are passed via Args.  For example,
+%  Additional API arguments are passed via Args. A common use case is to
+%  specify response groups:
 %
 %  ==
-%  item_lookup(Agent,'B00004TN1Z',Item, _{'Condition':"All"}).
+%  item_lookup(Agent,'B00004TN1Z',Item, _{'ResponseGroup':"Offers"}).
 %  ==
 item_lookup(Agent, Asin, Item, Args0) :-
     Args = Args0.put(_{ 'ItemId' : Asin
@@ -67,7 +68,7 @@ item_lookup(Agent, Asin, Item, Args0) :-
 
 %% item_lookup(+Agent, +Asin:string, -Item)
 %
-%  Like item_lookup/4 with no additional arguments.
+%  Like item_lookup/4 with no arguments.
 item_lookup(Agent,Asin,Item) :-
     item_lookup(Agent,Asin,Item,_{}).
 
