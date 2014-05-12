@@ -101,7 +101,7 @@ request(Agent, Method, Operation, Result, Args0) :-
 % add timestamp and signature to Args0 giving Args
 sign_request(Agent, Method, Args0, Args) :-
     % what string should we sign?
-    Args1 = Args0.put('Timestamp', uri_encode $ timestamp(~)),
+    Args1 = Args0.put('Timestamp', timestamp(~)),
     agent_host(Agent, Host),
     signable_string(Method, Host, Args1, SignMe),
 
@@ -109,7 +109,7 @@ sign_request(Agent, Method, Args0, Args) :-
     agent_secret(Agent, Secret),
     hmac_sha(Secret, SignMe, HmacBytes, [algorithm(sha256)]),
     base64(string_codes(~,HmacBytes), Signature),
-    Args = Args1.put('Signature', uri_encode $ Signature).
+    Args = Args1.put('Signature', Signature).
 
 
 % string to be signed to generate request signature
