@@ -1,8 +1,8 @@
 name(amazon_api).
 title('Interface to Amazon APIs').
 
-version('0.0.2').
-download('http://packs.ndrix.com/amazon_api/amazon_api-0.0.2.tgz').
+version('0.0.3').
+download('http://packs.ndrix.com/amazon_api/amazon_api-0.0.3.tgz').
 
 requires(func).
 requires(uri_qq).

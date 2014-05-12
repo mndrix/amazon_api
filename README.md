@@ -12,7 +12,7 @@ Make API calls to Amazon Web Services.  This version has been tested with Amazon
 
 # Changes in this Version
 
-  * Correct API key error
+  * Remove redundant URI encoding in V7.1.13 and later
 
 # Installation
 
