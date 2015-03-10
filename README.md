@@ -24,6 +24,3 @@ This module uses [semantic versioning](http://semver.org/).
 
 Source code available and pull requests accepted at
 http://github.com/mndrix/amazon_api
-
-@author Michael Hendricks <michael@ndrix.org>
-@license BSD
